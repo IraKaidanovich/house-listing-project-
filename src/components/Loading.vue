@@ -8,7 +8,6 @@
       align-items: center;
       margin-inline: auto;
       margin-top: 2rem;
-      color: #eb5440;
     "
   >
     <svg
@@ -20,19 +19,19 @@
       <path
         d="M12,4a8,8,0,0,1,7.89,6.7..."
         fill="none"
-        stroke="lightblue"
+        stroke="##b1564a"
         stroke-width="2"
       />
       <path
         d="M12,4a8,8,0,0,1,7.89,6.7..."
         fill="none"
-        stroke="blue"
+        stroke="#eb5440"
         stroke-width="2"
       >
         <animateTransform
           attributeName="transform"
           type="rotate"
-          dur="1s"
+          dur="0.5s"
           values="0 12 12;360 12 12"
           repeatCount="indefinite"
         />

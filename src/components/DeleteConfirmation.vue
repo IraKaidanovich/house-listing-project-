@@ -53,7 +53,7 @@ const cancel = () => {
 }
 
 button.red-button {
-  background-color: #eb5440;
+  background-color: #d73620;
 }
 
 button.grey-button {
