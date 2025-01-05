@@ -1,5 +1,7 @@
 <template>
-  <div v-if="loading">Loading...</div>
+  <div v-if="loading">
+    <Loading />
+  </div>
   <div v-else-if="error">{{ error }}</div>
   <div v-else class="body">
     <div class="upper-block">
@@ -52,6 +54,7 @@ import ResultOfSearch from "@/components/HousesPage/ResultOfSearch.vue";
 import { useCurrencyFormat } from "@/composables/useCurrencyFormat";
 import { useModal } from "@/composables/useModal";
 import { useDeleteHouse } from "@/composables/useDeleteHouse";
+import Loading from "@/components/Loading.vue";
 
 const { isModalVisible, itemToDeleteId, showModal, hideModal } = useModal();
 const { deleteHouse } = useDeleteHouse();
