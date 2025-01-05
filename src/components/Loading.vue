@@ -8,6 +8,7 @@
       align-items: center;
       margin-inline: auto;
       margin-top: 2rem;
+      height: 100vh
     "
   >
     <svg
