@@ -4,6 +4,10 @@ import bodyParser from 'body-parser';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import multer from 'multer';
+import NodeCache from 'node-cache';
+
+const upload = multer({ dest: './uploads/' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,11 +20,14 @@ if (!fs.existsSync('./uploads')) fs.mkdirSync('./uploads');
 if (!fs.existsSync('./houses.json')) fs.writeFileSync('./houses.json', '[]');
 
 // Middleware
-app.use(cors({
-  origin: ['https://comfy-longma-ab6c60.netlify.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
-}));
+app.use(cors());
+
+
+//app.use(cors({
+  //origin: ['http://keynestery.com'],
+  //methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  //allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+//}));
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
@@ -28,6 +35,24 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+const cache = new NodeCache({ stdTTL: 3600 }); // Cache for 1 hour
+
+app.get('/api/data', async (req, res) => {
+  try {
+    const cachedData = cache.get('data_key'); // Check if data is in cache
+    if (cachedData) {
+      return res.json(cachedData); // Send cached data
+    }
+
+    const data = await fetchDataFromDatabase(); // Simulate database fetch
+    cache.set('data_key', data); // Save data in cache
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // Load houses
 let houses = [];
@@ -109,7 +134,7 @@ function createNewHouse(data, housesArray) {
   // Construct a new house object with defaults if fields are missing
   const newHouse = {
     id: newId,
-    madeByMe: data.madeByMe ?? false, // Default to false if not provided
+    madeByMe: data.madeByMe ?? true, // Default to false if not provided
     location: {
       street: data.location?.street || '',
       houseNumber: data.location?.houseNumber || '',
@@ -140,6 +165,49 @@ app.post('/api/houses', (req, res) => {
   const newHouse = createNewHouse(req.body, houses);
   res.status(201).json(newHouse); // Respond with the new house
 });
+
+app.post('/api/houses/:id/uploadImage', upload.single('image'), (req, res) => {
+  const houseId = parseInt(req.params.id, 10);
+  const index = houses.findIndex(h => h.id === houseId);
+
+  if (index === -1) {
+    return res.status(404).json({ error: 'House not found' });
+  }
+
+  // Save the uploaded file path to the house object
+  houses[index].image = `/uploads/${req.file.filename}`;
+
+  fs.writeFileSync('./houses.json', JSON.stringify(houses, null, 2));
+
+  res.json(houses[index]);
+});
+
+app.delete('/api/houses/:id', (req, res) => {
+  const houseId = parseInt(req.params.id, 10);
+
+  if (isNaN(houseId)) {
+    return res.status(400).json({ error: 'Invalid house ID' });
+  }
+
+  const index = houses.findIndex((h) => h.id === houseId);
+  if (index === -1) {
+    return res.status(404).json({ error: 'House not found' });
+  }
+
+  // Remove the house from the array and save it temporarily for the response
+  const deletedHouse = houses.splice(index, 1)[0];
+
+  // Write the updated data to houses.json
+  fs.writeFile('./houses.json', JSON.stringify(houses, null, 2), (err) => {
+    if (err) {
+      console.error('Error saving houses.json:', err.message);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+    console.log(`House with ID ${houseId} deleted successfully`);
+    res.json({ message: 'House deleted successfully', house: deletedHouse });
+  });
+});
+
 
 app.put('/api/houses/:id', (req, res) => {
   const houseId = parseInt(req.params.id, 10);
