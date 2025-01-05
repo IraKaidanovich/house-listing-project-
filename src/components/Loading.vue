@@ -1,13 +1,14 @@
 <template>
   <div
     style="
-      width: 20%;
+      width: 10%;
       aspect-ratio: 1/1;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-inline: auto;
       margin-top: 2rem;
+      color: #eb5440;
     "
   >
     <svg
