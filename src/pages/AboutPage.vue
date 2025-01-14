@@ -1,6 +1,6 @@
 <template>
   <div class="page-content">
-    <h1 class="title">About DTT Rael Estate</h1>
+    <h1 class="title">About DTT Real Estate</h1>
     <p>
       From a student room in 2010 to a full-service digital agency in the heart
       of Amsterdam. Our story is one of those. A story we are very proud of.

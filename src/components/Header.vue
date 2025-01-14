@@ -5,48 +5,49 @@
         <img src="@/assets/images/logo.png" alt="Logo of DTT company" />
       </div>
 
-      <nav>
+      <nav class="navbar">
         <router-link
           :to="{ name: 'HousesPage' }"
           :class="['nav-link', { active: isHomeActive }]"
-          >Houses</router-link
         >
+          <span>Houses</span>
+          <img
+            v-if="isHomeActive"
+            @click="goToHousesPage"
+            class="image"
+            :class="{ active: isHomeActive }"
+            src="@/assets/icons/mobile/home-active-icon.png"
+            alt="Houses page"
+          />
+          <img
+            v-else
+            @click="goToHousesPage"
+            class="image"
+            src="@/assets/icons/mobile/home-icon.png"
+            alt="Houses page"
+          />
+        </router-link>
         <router-link
           :to="{ name: 'AboutPage' }"
           :class="['nav-link', { active: isAboutActive }]"
-          >About</router-link
         >
-
-        <img
-          v-if="isHomeActive"
-          @click="goToHousesPage"
-          class="image"
-          :class="{ active: isHomeActive }"
-          src="@/assets/icons/mobile/home-active-icon.png"
-          alt="Houses page"
-        />
-        <img
-          v-else
-          @click="goToHousesPage"
-          class="image"
-          src="@/assets/icons/mobile/home-icon.png"
-          alt="Houses page"
-        />
-        <img
-          v-if="isAboutActive"
-          @click="goToAboutPage"
-          class="image"
-          :class="{ active: isAboutActive }"
-          src="@/assets/icons/mobile/info-active-icon.png"
-          alt="About page"
-        />
-        <img
-          v-else
-          @click="goToAboutPage"
-          class="image"
-          src="@/assets/icons/mobile/info-icon.png"
-          alt="About page"
-        />
+          <span>About</span>
+          <img
+            v-if="isAboutActive"
+            @click="goToAboutPage"
+            class="image"
+            :class="{ active: isAboutActive }"
+            src="@/assets/icons/mobile/info-active-icon.png"
+            alt="About page"
+          />
+          <img
+            v-else
+            @click="goToAboutPage"
+            class="image"
+            src="@/assets/icons/mobile/info-icon.png"
+            alt="About page"
+          />
+        </router-link>
       </nav>
     </div>
   </header>
@@ -115,7 +116,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
     box-shadow: 0px 1px 20px 0px rgba(62, 63, 63, 0.226);
   }
 
-  .logo img{
+  .logo img {
     display: none;
   }
 }
