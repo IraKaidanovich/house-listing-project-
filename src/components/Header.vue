@@ -94,12 +94,11 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 @media (max-width: 880px) {
-
   .nav-link:last-of-type {
     margin-inline-start: auto;
   }
 
-  .nav-link span{
+  .nav-link span {
     display: none;
   }
 
