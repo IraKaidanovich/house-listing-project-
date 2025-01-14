@@ -105,16 +105,14 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   .nav-link img {
     width: 30px;
     height: 30px;
-    position: absolute;
-    right: 30%;
-    top: 7px;
+    position: relative;
+    transition: transform 0.2s ease, color 0.2s ease;
   }
 
   .nav-link img.active {
     width: 30px;
     height: 30px;
-    position: absolute;
-    left: 30%;
+    transform: scale(1.1);
   }
 
   .header {
@@ -163,6 +161,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 .active {
   font-weight: bold;
   color: black;
+  transition: font-weight 0.2s ease, color 0.2s ease;
 }
 
 .header-content {
