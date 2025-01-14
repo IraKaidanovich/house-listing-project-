@@ -81,6 +81,12 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
 @media (min-width: 880px) {
   img.image {
     display: none;
@@ -88,11 +94,16 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 @media (max-width: 880px) {
-  .nav-link {
+
+  .nav-link:last-of-type {
+    margin-inline-start: auto;
+  }
+
+  .nav-link span{
     display: none;
   }
 
-  img.image {
+  .nav-link img {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -100,7 +111,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
     top: 7px;
   }
 
-  img.image.active {
+  .nav-link img.active {
     width: 30px;
     height: 30px;
     position: absolute;
