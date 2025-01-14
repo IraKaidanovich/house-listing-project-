@@ -1,50 +1,34 @@
 <template>
   <header class="header">
     <div class="header-content">
+      <!-- Logo -->
       <div @click="goToHousesPage" class="logo">
         <img src="@/assets/images/logo.png" alt="Logo of DTT company" />
       </div>
 
+      <!-- Navigation Bar -->
       <nav class="navbar">
         <router-link
           :to="{ name: 'HousesPage' }"
-          :class="['nav-link', { active: isHomeActive }]"
+          class="nav-link"
+          exact-active-class="active"
         >
           <span>Houses</span>
           <img
-            v-if="isHomeActive"
-            @click="goToHousesPage"
             class="image"
-            :class="{ active: isHomeActive }"
-            src="@/assets/icons/mobile/home-active-icon.png"
-            alt="Houses page"
-          />
-          <img
-            v-else
-            @click="goToHousesPage"
-            class="image"
-            src="@/assets/icons/mobile/home-icon.png"
+            :src="isHomeActive ? homeActiveIcon : homeIcon"
             alt="Houses page"
           />
         </router-link>
         <router-link
           :to="{ name: 'AboutPage' }"
-          :class="['nav-link', { active: isAboutActive }]"
+          class="nav-link"
+          exact-active-class="active"
         >
           <span>About</span>
           <img
-            v-if="isAboutActive"
-            @click="goToAboutPage"
             class="image"
-            :class="{ active: isAboutActive }"
-            src="@/assets/icons/mobile/info-active-icon.png"
-            alt="About page"
-          />
-          <img
-            v-else
-            @click="goToAboutPage"
-            class="image"
-            src="@/assets/icons/mobile/info-icon.png"
+            :src="isAboutActive ? aboutActiveIcon : aboutIcon"
             alt="About page"
           />
         </router-link>
@@ -57,17 +41,16 @@
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+// Router instance
 const router = useRouter();
 const route = useRoute();
 
+// Navigation methods
 const goToHousesPage = () => {
   router.push({ name: "HousesPage" });
 };
 
-const goToAboutPage = () => {
-  router.push({ name: "AboutPage" });
-};
-
+// Active state for navigation links
 const isHomeActive = computed(() => {
   return [
     "HousesPage",
@@ -78,15 +61,23 @@ const isHomeActive = computed(() => {
 });
 
 const isAboutActive = computed(() => route.name === "AboutPage");
+
+// Dynamic imports for icons
+const homeIcon = require("@/assets/icons/mobile/home-icon.png");
+const homeActiveIcon = require("@/assets/icons/mobile/home-active-icon.png");
+const aboutIcon = require("@/assets/icons/mobile/info-icon.png");
+const aboutActiveIcon = require("@/assets/icons/mobile/info-active-icon.png");
 </script>
 
 <style scoped>
+/* Navbar styles */
 .navbar {
   width: 100%;
   display: flex;
   justify-content: flex-start;
 }
 
+/* Responsive design */
 @media (min-width: 880px) {
   img.image {
     display: none;
@@ -105,37 +96,22 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   .nav-link img {
     width: 30px;
     height: 30px;
-    position: absolute;
-    right: 30%;
+    position: relative;
     top: 7px;
-  }
-
-  .nav-link img.active {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 30%;
-  }
-
-  .header {
-    position: fixed;
-    bottom: 0px;
-    z-index: 1;
-    width: 100%;
-    height: 50px;
-    box-shadow: 0px 1px 20px 0px rgba(62, 63, 63, 0.226);
-  }
-
-  .logo img {
-    display: none;
   }
 }
 
+/* Header styles */
 .header {
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0px 1px 20px 0px rgba(62, 63, 63, 0.226);
+  background-color: #fff;
   display: flex;
   align-items: center;
-  padding: 0px;
-  background-color: #fff;
 }
 
 .logo img {
@@ -149,12 +125,12 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   align-items: center;
 }
 
+/* Link styles */
 .nav-link {
   text-decoration: none;
-  color: inherit;
+  color: #c3c3c3;
   font-size: 18px;
   font-family: "Montserrat";
-  color: #c3c3c3;
   font-weight: 500;
   margin: 0px 20px;
 }
@@ -167,7 +143,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 .header-content {
   display: flex;
-  padding: 0% 15%;
+  padding: 0 15%;
   align-items: center;
   width: 100%;
 }
