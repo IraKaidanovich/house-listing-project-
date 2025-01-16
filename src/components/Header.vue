@@ -92,11 +92,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
-.dark-header {
-  background-color: #333;
-  color: #fff;
-}
-
 .navbar {
   width: 100%;
   display: flex;
@@ -151,6 +146,10 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   padding: 0px;
   background-color: #fff;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-header {
+  background-color: #474747;
 }
 
 .logo img {
