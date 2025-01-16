@@ -8,7 +8,10 @@
       <nav class="navbar">
         <router-link
           :to="{ name: 'HousesPage' }"
-          :class="['nav-link', { active: isHomeActive }]"
+          :class="[
+            'nav-link',
+            { active: isHomeActive, 'dark-link': isDarkMode },
+          ]"
         >
           <span>Houses</span>
           <img
@@ -29,7 +32,10 @@
         </router-link>
         <router-link
           :to="{ name: 'AboutPage' }"
-          :class="['nav-link', { active: isAboutActive }]"
+          :class="[
+            'nav-link',
+            { active: isHomeActive, 'dark-link': isDarkMode },
+          ]"
         >
           <span>About</span>
           <img
@@ -49,8 +55,14 @@
           />
         </router-link>
       </nav>
-      <button @click="toggleDarkMode">
-        Switch to {{ isDarkMode ? "Light" : "Dark" }} Mode
+      <button
+        :class="{
+          'light-mode-button': !isDarkMode,
+          'dark-mode-button': isDarkMode,
+        }"
+        @click="toggleDarkMode"
+      >
+        {{ isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode" }}
       </button>
     </div>
   </header>
@@ -60,15 +72,16 @@
 import { computed, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
-
 const router = useRouter();
 const route = useRoute();
 
-const isDarkMode = inject('isDarkMode');
-const toggleDarkMode = inject('toggleDarkMode');
+const isDarkMode = inject("isDarkMode");
+const toggleDarkMode = inject("toggleDarkMode");
 
 if (!isDarkMode || !toggleDarkMode) {
-  console.error("Dark mode state or toggle function is missing. Ensure the parent provides these.");
+  console.error(
+    "Dark mode state or toggle function is missing. Ensure the parent provides these."
+  );
 }
 
 const goToHousesPage = () => {
@@ -92,6 +105,50 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
+.light-mode-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fdd835; 
+  color: #333; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+}
+
+.light-mode-button:hover {
+  background-color: #fbc02d; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.light-mode-button:active {
+  transform: scale(0.95);
+}
+
+.dark-mode-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #424242; 
+  color: #ffffff; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+}
+
+.dark-mode-button:hover {
+  background-color: #616161; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode-button:active {
+  transform: scale(0.95);
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -178,6 +235,10 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   font-weight: bold;
   color: black;
   transition: font-weight 0.2s ease, color 0.2s ease;
+}
+
+.dark-link {
+  color: #fff;
 }
 
 .header-content {
