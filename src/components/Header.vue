@@ -67,6 +67,10 @@ const route = useRoute();
 const isDarkMode = inject('isDarkMode');
 const toggleDarkMode = inject('toggleDarkMode');
 
+if (!isDarkMode || !toggleDarkMode) {
+  console.error("Dark mode state or toggle function is missing. Ensure the parent provides these.");
+}
+
 const goToHousesPage = () => {
   router.push({ name: "HousesPage" });
 };
