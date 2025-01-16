@@ -233,7 +233,10 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   display: flex;
   align-items: center;
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 9px;
+  padding: 0px 9px;
+  margin: 8px 0;
+  height: 45px;
 }
 
 .nav-link {
