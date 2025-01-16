@@ -57,9 +57,9 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { inject } from 'vue';
+
 
 const router = useRouter();
 const route = useRoute();

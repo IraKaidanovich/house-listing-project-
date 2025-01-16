@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <DarkModeProvider>
-      <Header />
-    </DarkModeProvider>
+    <Header />
+
     <router-view />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import DarkModeProvider from "./components/DarkModeProvider.vue";
 
 export default {
   name: "App",
@@ -35,17 +33,6 @@ export default {
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
-}
-
-body.dark-mode {
-  --background-color: #121212;
-  --text-color: #ffffff;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @media (max-width: 800px) {
