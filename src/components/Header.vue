@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'dark-header': isDarkMode }">
     <div class="header-content">
       <div @click="goToHousesPage" class="logo">
         <img src="@/assets/images/logo.png" alt="Logo of DTT company" />
@@ -49,6 +49,9 @@
           />
         </router-link>
       </nav>
+      <button @click="toggleDarkMode">
+        Switch to {{ isDarkMode ? "Light" : "Dark" }} Mode
+      </button>
     </div>
   </header>
 </template>
@@ -56,9 +59,13 @@
 <script setup>
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { inject } from 'vue';
 
 const router = useRouter();
 const route = useRoute();
+
+const isDarkMode = inject('isDarkMode');
+const toggleDarkMode = inject('toggleDarkMode');
 
 const goToHousesPage = () => {
   router.push({ name: "HousesPage" });
@@ -81,6 +88,16 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
+header {
+  background-color: #f5f5f5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-header {
+  background-color: #333;
+  color: #fff;
+}
+
 .navbar {
   width: 100%;
   display: flex;
