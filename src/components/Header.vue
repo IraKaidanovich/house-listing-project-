@@ -92,11 +92,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
-header {
-  background-color: #f5f5f5;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 .dark-header {
   background-color: #333;
   color: #fff;
@@ -155,6 +150,7 @@ header {
   align-items: center;
   padding: 0px;
   background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .logo img {
