@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <DarkModeProvider>
+      <Header />
+    </DarkModeProvider>
 
     <router-view />
   </div>
@@ -8,6 +10,7 @@
 
 <script>
 import Header from "./components/Header.vue";
+import DarkModeProvider from "./components/DarkModeProvider.vue";
 
 export default {
   name: "App",
