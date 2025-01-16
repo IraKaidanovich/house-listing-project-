@@ -61,8 +61,10 @@
           'dark-mode-button': isDarkMode,
         }"
         @click="toggleDarkMode"
+        aria-label="Toggle dark mode"
+        :aria-pressed="isDarkMode"
       >
-        {{ isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode" }}
+        {{ isDarkMode ? "Light Mode" : "Dark Mode" }}
       </button>
     </div>
   </header>
@@ -106,21 +108,27 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 <style scoped>
 .light-mode-button {
-  padding: 0.5rem 1rem;
-  border: none;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #fbc02d; 
   border-radius: 20px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  background-color: #fdd835; 
+  background-color: #fff59d; 
   color: #333; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .light-mode-button:hover {
-  background-color: #fbc02d; 
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: #fdd835; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode-button:focus {
+  outline: 3px solid #ffeb3b; 
+  outline-offset: 3px;
 }
 
 .light-mode-button:active {
@@ -128,21 +136,27 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .dark-mode-button {
-  padding: 0.5rem 1rem;
-  border: none;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #616161; 
   border-radius: 20px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   background-color: #424242; 
-  color: #ffffff; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  color: #f5f5f5; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .dark-mode-button:hover {
   background-color: #616161; 
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode-button:focus {
+  outline: 3px solid #90caf9; 
+  outline-offset: 3px;
 }
 
 .dark-mode-button:active {
