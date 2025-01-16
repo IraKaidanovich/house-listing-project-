@@ -13,6 +13,7 @@ const isDarkMode = ref(false);
 // Provide the state and a method to toggle it
 provide('isDarkMode', isDarkMode);
 provide('toggleDarkMode', () => {
+  console.log("toggleDarkMode invoked!");
   isDarkMode.value = !isDarkMode.value;
 });
 </script>

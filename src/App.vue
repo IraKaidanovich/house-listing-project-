@@ -2,9 +2,8 @@
   <div id="app">
     <DarkModeProvider>
       <Header />
+      <router-view />
     </DarkModeProvider>
-
-    <router-view />
   </div>
 </template>
 
@@ -16,6 +15,7 @@ export default {
   name: "App",
   components: {
     Header,
+    DarkModeProvider,
   },
 };
 </script>
