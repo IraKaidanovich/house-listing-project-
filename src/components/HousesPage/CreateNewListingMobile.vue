@@ -1,6 +1,6 @@
 <template>
   <div class="create-new-mobile">
-    <h1 class="title" :class="{'title-dark' : isDarkMode}" >Houses</h1>
+    <h1 class="title" :class="{ 'title-dark': isDarkMode }">Houses</h1>
     <img
       @click="goToHouseCreating"
       class="plus"
@@ -11,7 +11,9 @@
 </template>
 
 <script setup>
-import { useRouter, inject } from "vue-router";
+import { useRouter } from "vue-router";
+import { inject } from "vue";
+
 const router = useRouter();
 
 const isDarkMode = inject("isDarkMode");
