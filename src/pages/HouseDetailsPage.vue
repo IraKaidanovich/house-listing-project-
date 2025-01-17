@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { onMounted, computed, watch, injecte } from "vue";
+import { onMounted, computed, watch, inject } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useFetchHouseDetails } from "@/composables/useFetchHouseDetails";
 import { useFetchHouses } from "@/composables/useFetchHouses";
@@ -38,7 +38,7 @@ import { useCurrencyFormat } from "@/composables/useCurrencyFormat";
 import { useModal } from "@/composables/useModal";
 import { useDeleteHouse } from "@/composables/useDeleteHouse";
 
-const isDarkMode = injecte("isDarkMode");
+const isDarkMode = inject("isDarkMode");
 
 const { isModalVisible, itemToDeleteId, showModal, hideModal } = useModal();
 const { currencyFormatWithoutSymbol } = useCurrencyFormat();
@@ -100,7 +100,6 @@ const hasGarageText = computed(() => {
 .body-dark {
   background-color: black;
 }
-
 
 @media (max-width: 880px) {
   .body {
