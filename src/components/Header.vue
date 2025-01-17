@@ -112,7 +112,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 <style scoped>
 .light-mode-button {
-  padding: 2px 2px;
+  padding: 5px;
   border: 1px solid #9c3325;
   border-radius: 20px;
   font-weight: bold;
@@ -139,7 +139,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .dark-mode-button {
-  padding: 2px 2px;
+  padding: 5px;
   border: 1px solid #616161;
   border-radius: 20px;
   font-weight: bold;
@@ -222,7 +222,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .dark-header {
-  background-color: #474747;
+  background-color: #4a4e51;
 }
 
 .logo img {

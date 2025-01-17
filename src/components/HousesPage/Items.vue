@@ -164,7 +164,7 @@ const goToHouseDetails = (itemId) => {
 }
 
 .item:hover {
-  background-color: #e28a8a5d;
+  background-color: #e28a8a12;
 }
 
 .item-dark {
