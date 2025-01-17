@@ -3,13 +3,16 @@
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
     <div v-else-if="item && item.location">
-      <div class="item-conteiner">
+      <div
+        class="item-conteiner"
+        :class="{ '.item-conteiner-dark': isDarkMode }"
+      >
         <div
           class="item-img"
           :style="`background-image: url(${item.image})`"
         ></div>
-        <div class="text">
-          <div class="title item">
+        <div class="text" :class="{ 'text-dark': isDarkMode }">
+          <div class="title item" :class="{ 'title-dark': isDarkMode }">
             {{ item.location.street }} {{ item.location.houseNumber }}
             {{ item.location.houseNumberAddition }}
           </div>
@@ -46,7 +49,11 @@
             </div>
           </div>
           <div class="describtion item">{{ item.description }}</div>
-          <div v-if="item.madeByMe" class="madeByMe-block">
+          <div
+            v-if="item.madeByMe"
+            class="madeByMe-block"
+            :class="{ 'madeByMe-block-dark': isDarkMode }"
+          >
             <div class="edit">
               <button @click="goToHouseEditPage(item.id)">
                 <img
@@ -90,6 +97,10 @@
 </template>
 
 <script setup>
+import { injecte } from "vue";
+
+const isDarkMode = injecte("isDarkMode");
+
 const props = defineProps({
   loading: Boolean,
   error: String,
@@ -115,6 +126,10 @@ const props = defineProps({
   background-color: #ffffff;
 }
 
+.item-conteiner-dark {
+  background-color: #4a4e51;
+}
+
 .rooms-proberties,
 .item-properties {
   display: flex;
@@ -134,6 +149,10 @@ const props = defineProps({
   color: black;
   font-weight: 700;
   margin-top: -10px;
+}
+
+.title-dark {
+  color: white;
 }
 
 .item-img {
@@ -162,6 +181,10 @@ const props = defineProps({
   font-weight: 500;
 }
 
+.text-dark {
+  color: white;
+}
+
 .madeByMe-block {
   display: flex;
   position: absolute;
@@ -174,6 +197,11 @@ const props = defineProps({
   background-color: rgba(0, 255, 255, 0);
   border: none;
   cursor: pointer;
+}
+
+.madeByMe-block-dark button {
+  background-color: #faf6f6cb;
+  padding: 10px;
 }
 
 @media (max-width: 915px) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="body" :class="{ 'body-dark': isDarkMode }">
     <div class="left-block">
       <BackToList :styling="'white'"></BackToList>
       <ItemsDetails
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { onMounted, computed, watch, ref } from "vue";
+import { onMounted, computed, watch, injecte } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useFetchHouseDetails } from "@/composables/useFetchHouseDetails";
 import { useFetchHouses } from "@/composables/useFetchHouses";
@@ -37,6 +37,8 @@ import Recommended from "@/components/HouseDeteilsPage/Recommended.vue";
 import { useCurrencyFormat } from "@/composables/useCurrencyFormat";
 import { useModal } from "@/composables/useModal";
 import { useDeleteHouse } from "@/composables/useDeleteHouse";
+
+const isDarkMode = injecte("isDarkMode");
 
 const { isModalVisible, itemToDeleteId, showModal, hideModal } = useModal();
 const { currencyFormatWithoutSymbol } = useCurrencyFormat();
@@ -94,6 +96,11 @@ const hasGarageText = computed(() => {
   margin: 30px 15%;
   display: flex;
 }
+
+.body-dark {
+  background-color: black;
+}
+
 
 @media (max-width: 880px) {
   .body {

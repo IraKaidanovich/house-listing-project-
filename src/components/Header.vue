@@ -108,6 +108,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   border: 1px solid #9c3325;
   border-radius: 20px;
   font-weight: bold;
+  font-size: medium;
   cursor: pointer;
   background-color: #eb54407c;
   color: #ffffff;
