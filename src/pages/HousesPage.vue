@@ -3,7 +3,7 @@
     <Loading />
   </div>
   <div v-else-if="error">{{ error }}</div>
-  <div v-else class="body">
+  <div v-else class="body" :class="{ 'body-dark': isDarkMode }">
     <div class="upper-block">
       <div class="left-block">
         <CreatNewMobile></CreatNewMobile>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted, watch } from "vue";
+import { computed, ref, onMounted, watch, inject } from "vue";
 import { useFetchHouses } from "@/composables/useFetchHouses";
 import { useRouter } from "vue-router";
 import Confirmation from "@/components/DeleteConfirmation.vue";
@@ -55,6 +55,8 @@ import { useCurrencyFormat } from "@/composables/useCurrencyFormat";
 import { useModal } from "@/composables/useModal";
 import { useDeleteHouse } from "@/composables/useDeleteHouse";
 import Loading from "@/components/Loading.vue";
+
+const isDarkMode = inject("isDarkMode")
 
 const { isModalVisible, itemToDeleteId, showModal, hideModal } = useModal();
 const { deleteHouse } = useDeleteHouse();
@@ -87,7 +89,7 @@ const filteredItems = computed(() => {
 
 const clearSearch = () => {
   search.value = "";
-  hasSearched.value = false; 
+  hasSearched.value = false;
 };
 
 const showSearchClearButton = computed(() => {
@@ -121,7 +123,7 @@ const goToHouseEditPage = (itemId) => {
 };
 
 const sortedItems = computed(() => {
-  const sorted = [...filteredItems.value]; 
+  const sorted = [...filteredItems.value];
   if (sortCriteria.value === "price") {
     sorted.sort((a, b) => a.price - b.price);
   } else if (sortCriteria.value === "size") {
@@ -132,7 +134,7 @@ const sortedItems = computed(() => {
 
 const toggleSortCriteria = (criteria) => {
   if (sortCriteria.value === criteria) {
-    sortCriteria.value = null; 
+    sortCriteria.value = null;
   } else {
     sortCriteria.value = criteria;
   }
@@ -158,6 +160,10 @@ const toggleSortCriteria = (criteria) => {
 
 .body {
   padding: 0% 15%;
+}
+
+.body-dark {
+  background-color:#2c2e30;
 }
 
 @media (max-width: 880px) {
