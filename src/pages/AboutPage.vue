@@ -1,6 +1,8 @@
 <template>
-  <div class="page-content">
-    <h1 class="title">About DTT Real Estate</h1>
+  <div class="page-content" :class="{ 'page-content-dark': isDarkMode }">
+    <h1 class="title" :class="{ 'title-dark': isDarkMode }">
+      About DTT Real Estate
+    </h1>
     <p>
       From a student room in 2010 to a full-service digital agency in the heart
       of Amsterdam. Our story is one of those. A story we are very proud of.
@@ -17,7 +19,11 @@
     </p>
     <h2>Design and Developement</h2>
     <div class="content-web-link">
-      <img class="logo" src="@/assets/images/logo.png" alt="logo of DTT company" />
+      <img
+        class="logo"
+        src="@/assets/images/logo.png"
+        alt="logo of DTT company"
+      />
       <div class="web-link">
         <h5 class="web-link-item text">By DTT</h5>
         <a href="www.d-tt.nl" class="web-link-item link">www.d-tt.nl</a>
@@ -26,15 +32,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "AboutPage",
-  data() {
-    return {
-      info: null,
-    };
-  },
-};
+<script setup>
+import { ref, inject } from "vue";
+
+const isDarkMode = inject("isDarkMode");
+
+const info = ref(null);
 </script>
 
 <style>
@@ -51,11 +54,20 @@ export default {
   margin-bottom: 100px;
 }
 
+.page-content-dark {
+  color: white;
+  background-color: #2c2e30;
+}
+
 .title {
   font-family: Montserrat;
   font-size: 32px;
   color: black;
   font-weight: 700;
+}
+
+.title-dark {
+  color: white;
 }
 
 .logo {

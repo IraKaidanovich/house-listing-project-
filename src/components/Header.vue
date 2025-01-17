@@ -1,7 +1,11 @@
 <template>
   <header class="header" :class="{ 'dark-header': isDarkMode }">
     <div class="header-content">
-      <div @click="goToHousesPage" class="logo">
+      <div
+        @click="goToHousesPage"
+        class="logo"
+        :class="{ 'dark-logo': isDarkMode }"
+      >
         <img src="@/assets/images/logo.png" alt="Logo of DTT company" />
       </div>
 
@@ -115,7 +119,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   font-weight: bold;
   cursor: pointer;
   background-color: #eb5440;
-  color: #333;
+  color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
     transform 0.1s ease;
@@ -232,11 +236,14 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: #6c6b6b;
   border-radius: 20px;
   padding: 0px 9px;
   margin: 8px 0;
   height: 45px;
+}
+
+.dark-logo {
+  background-color: #6c6b6b;
 }
 
 .nav-link {
