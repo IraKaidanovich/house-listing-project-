@@ -239,5 +239,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   padding: 0% 15%;
   align-items: center;
   width: 100%;
+  height: 60px;
 }
 </style>
