@@ -68,7 +68,7 @@
         aria-label="Toggle dark mode"
         :aria-pressed="isDarkMode"
       >
-        {{ isDarkMode ? "☀️" : "🌙" }}
+        {{ isDarkMode ? "🌙" : "☀️" }}
       </button>
     </div>
   </header>
@@ -112,10 +112,9 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 <style scoped>
 .light-mode-button {
-  padding: 2px 1.5rem;
-  border: 2px solid #9c3325;
+  padding: 2px 2px;
+  border: 1px solid #9c3325;
   border-radius: 20px;
-  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   background-color: #eb5440;
@@ -131,7 +130,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .light-mode-button:focus {
-  outline: 3px solid #ba3d46e5;
+  outline: 3px solid #e82639be;
   outline-offset: 3px;
 }
 
@@ -140,10 +139,9 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .dark-mode-button {
-  padding: 2px 1.5rem;
-  border: 2px solid #616161;
+  padding: 2px 2px;
+  border: 1px solid #616161;
   border-radius: 20px;
-  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   background-color: #504f4f;
