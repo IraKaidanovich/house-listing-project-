@@ -1,14 +1,6 @@
 <template>
   <header class="header" :class="{ 'dark-header': isDarkMode }">
     <div class="header-content">
-      <div
-        @click="goToHousesPage"
-        class="logo"
-        :class="{ 'dark-logo': isDarkMode }"
-      >
-        <img src="@/assets/images/logo.png" alt="Logo of DTT company" />
-      </div>
-
       <nav class="navbar">
         <router-link
           :to="{ name: 'HousesPage' }"
@@ -207,10 +199,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
     height: 50px;
     box-shadow: 0px 1px 20px 0px rgba(62, 63, 63, 0.226);
   }
-
-  .logo img {
-    display: none;
-  }
 }
 
 .header {
@@ -223,25 +211,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 .dark-header {
   background-color: #4a4e51;
-}
-
-.logo img {
-  height: 30px;
-}
-
-.logo {
-  margin-left: 0px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border-radius: 20px;
-  padding: 0px 9px;
-  margin: 8px 0;
-  height: 45px;
-}
-
-.dark-logo {
-  background-color: #6c6b6b;
 }
 
 .nav-link {

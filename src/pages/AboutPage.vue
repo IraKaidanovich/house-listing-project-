@@ -1,7 +1,7 @@
 <template>
   <div class="page-content" :class="{ 'page-content-dark': isDarkMode }">
     <h1 class="title" :class="{ 'title-dark': isDarkMode }">
-      About DTT Real Estate
+      About Real Estate
     </h1>
     <p>
       From a student room in 2010 to a full-service digital agency in the heart
@@ -17,18 +17,6 @@
       makes us rich in experience, flexible and enormously versatile. And that
       is precisely where our strength lies.
     </p>
-    <h2>Design and Developement</h2>
-    <div class="content-web-link">
-      <img
-        class="logo"
-        src="@/assets/images/logo.png"
-        alt="logo of DTT company"
-      />
-      <div class="web-link">
-        <h5 class="web-link-item text">By DTT</h5>
-        <a href="www.d-tt.nl" class="web-link-item link">www.d-tt.nl</a>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -68,35 +56,5 @@ const info = ref(null);
 
 .title-dark {
   color: white;
-}
-
-.logo {
-  height: 70px;
-}
-
-.content-web-link {
-  display: flex;
-}
-
-.web-link {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 20px;
-}
-
-.text {
-  margin: 0px;
-  font-size: 18px;
-  color: black;
-  font-weight: 300;
-}
-
-.link {
-  text-decoration: none;
-  color: inherit;
-  font-size: 15px;
-  font-family: "Montserrat";
-  color: #067bc2;
-  font-weight: 300;
 }
 </style>

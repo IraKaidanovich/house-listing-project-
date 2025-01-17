@@ -138,7 +138,7 @@ const goToHouseDetails = (itemId) => {
   width: 30px;
   height: 30px;
   margin: 5px;
-  background-color: #c3c3c3b4;
+  background-color: #faf6f6cb;
   padding: 5px;
   border-radius: 15px;
 }
