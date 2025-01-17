@@ -97,9 +97,9 @@
 </template>
 
 <script setup>
-import { injecte } from "vue";
+import { inject } from "vue";
 
-const isDarkMode = injecte("isDarkMode");
+const isDarkMode = inject("isDarkMode");
 
 const props = defineProps({
   loading: Boolean,
