@@ -135,12 +135,12 @@ const goToHouseDetails = (itemId) => {
 }
 
 .madeByMe-block img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   margin: 5px;
   background-color: #c3c3c3b4;
-  padding: 3px;
-  border-radius: 5px;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 .madeByMe-block button {
