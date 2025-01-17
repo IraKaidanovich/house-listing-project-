@@ -40,19 +40,23 @@
             src="@/assets/icons/properties/bed.png"
             alt="icon of bed"
           />
-          <p>{{ item.rooms?.bedrooms || "N/A" }}</p>
+          <p :class="{ 'p-dark': isDarkMode }">
+            {{ item.rooms?.bedrooms || "N/A" }}
+          </p>
           <img
             class="property"
             src="@/assets/icons/properties/bath.png"
             alt="icon of bath"
           />
-          <p>{{ item.rooms?.bathrooms || "N/A" }}</p>
+          <p :class="{ 'p-dark': isDarkMode }">
+            {{ item.rooms?.bathrooms || "N/A" }}
+          </p>
           <img
             class="property"
             src="@/assets/icons/properties/size.png"
             alt="icon of size"
           />
-          <p>{{ item.size || "N/A" }}</p>
+          <p :class="{ 'p-dark': isDarkMode }">{{ item.size || "N/A" }}</p>
         </div>
 
         <div v-if="item.madeByMe" class="madeByMe-block">
@@ -135,6 +139,8 @@ const goToHouseDetails = (itemId) => {
   height: 20px;
   margin: 5px;
   background-color: #c3c3c3b4;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .madeByMe-block button {
@@ -158,7 +164,7 @@ const goToHouseDetails = (itemId) => {
 }
 
 .item:hover {
-  background-color: #e28a8ab3;
+  background-color: #e28a8a5d;
 }
 
 .item-dark {
@@ -194,7 +200,7 @@ img.property {
   margin: 0px;
 }
 
-.item-properties-dark p {
+.p-dark {
   color: black;
 }
 
