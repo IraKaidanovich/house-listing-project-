@@ -220,7 +220,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 }
 
 .dark-header {
-  background-color: #817d7d;
+  background-color: #474747;
 }
 
 .logo img {
@@ -232,7 +232,7 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   cursor: pointer;
   display: flex;
   align-items: center;
-  background-color: 504f4f;
+  background-color: #6c6b6b;
   border-radius: 20px;
   padding: 0px 9px;
   margin: 8px 0;
