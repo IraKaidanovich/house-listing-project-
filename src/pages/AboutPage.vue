@@ -51,7 +51,7 @@ const info = ref(null);
   font-size: 15px;
   color: #4a4b4c;
   font-weight: 300;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .page-content-dark {

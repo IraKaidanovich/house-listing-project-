@@ -5,6 +5,7 @@
       :key="item.id"
       @click="goToHouseDetails(item.id)"
       class="item"
+      :class="{ 'item-dark': isDarkMode }"
     >
       <div
         class="item-img"
@@ -12,20 +13,28 @@
       ></div>
       <div class="item-container">
         <div class="item-text-container">
-          <div class="item-title">
+          <div class="item-title" :class="{ 'item-title-dark': isDarkMode }">
             <h5>
               {{ item.location?.street || "No street provided" }}
               {{ item.location?.houseNumber || "" }}
               {{ item.location?.houseNumberAddition || "" }}
             </h5>
           </div>
-          <div class="item-price">{{ currencyFormat(item.price) }}</div>
-          <div class="item-address">
+          <div class="item-price" :class="{ 'item-price-dark': isDarkMode }">
+            {{ currencyFormat(item.price) }}
+          </div>
+          <div
+            class="item-address"
+            :class="{ 'item-address-dark': isDarkMode }"
+          >
             {{ item.location?.zip || "No ZIP provided" }}
             {{ item.location?.city || "No City provided" }}
           </div>
         </div>
-        <div class="item-properties">
+        <div
+          class="item-properties"
+          :class="{ 'item-properties-dark': isDarkMode }"
+        >
           <img
             class="property"
             src="@/assets/icons/properties/bed.png"
@@ -70,8 +79,10 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, inject } from "vue";
 import { useRouter } from "vue-router";
+
+const isDarkMode = inject("isDarkMode");
 
 const props = defineProps({
   sortedItems: Array,
@@ -145,6 +156,14 @@ const goToHouseDetails = (itemId) => {
   cursor: pointer;
 }
 
+.item:hover {
+  background-color: #c3c3c3;
+}
+
+.item-dark {
+  background-color: #4a4e51;
+}
+
 .item-text-container {
   display: flex;
   flex-direction: column;
@@ -174,6 +193,10 @@ img.property {
   margin: 0px;
 }
 
+.item-properties-dark p {
+  color: black;
+}
+
 .item-img {
   width: 120px;
   height: 120px;
@@ -190,13 +213,25 @@ img.property {
   margin: 5px 0;
 }
 
+.item-title-dark {
+  color: white;
+}
+
 .item-price {
   color: #4a4b4c;
   font-weight: 400;
 }
 
+.item-price-dark {
+  color: white;
+}
+
 .item-address {
   color: #c3c3c3;
+}
+
+.item-address-dark {
+  color: white;
 }
 
 @media (max-width: 880px) {
