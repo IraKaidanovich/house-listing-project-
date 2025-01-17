@@ -139,8 +139,8 @@ const goToHouseDetails = (itemId) => {
   height: 30px;
   margin: 5px;
   background-color: #faf6f6cb;
-  padding: 5px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .madeByMe-block button {

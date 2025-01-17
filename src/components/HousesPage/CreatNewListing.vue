@@ -1,9 +1,19 @@
 <template>
-  <button @click="goToHouseCreating" class="creat-new">+ CREAT NEW</button>
+  <button
+    @click="goToHouseCreating"
+    class="creat-new"
+    :class="{ 'create-new-dark': isDarkMode }"
+  >
+    + CREAT NEW
+  </button>
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
+import { inject } from "vue";
+
+const isDarkMode = inject("isDarkMode");
+
 const router = useRouter();
 
 // Define the method to navigate to the House Creating page
@@ -22,7 +32,7 @@ const goToHouseCreating = () => {
   }
 }
 
-@media (max-width: 880px){
+@media (max-width: 880px) {
   .creat-new {
     display: none;
   }
@@ -41,4 +51,7 @@ const goToHouseCreating = () => {
   cursor: pointer;
 }
 
+.create-new-dark {
+  background-color: #681308;
+}
 </style>

@@ -2,14 +2,14 @@
   <div class="filter">
     <button
       class="price-filter"
-      :class="{ active: sortCriteria === 'price' }"
+      :class="{ active: sortCriteria === 'price', dark: isDarkMode }"
       @click="$emit('toggle', 'price')"
     >
       Price
     </button>
     <button
       class="size-filter"
-      :class="{ active: sortCriteria === 'size' }"
+      :class="{ active: sortCriteria === 'size', dark: isDarkMode }"
       @click="$emit('toggle', 'size')"
     >
       Size
@@ -20,7 +20,7 @@
 <script setup>
 import { toRefs, inject } from "vue";
 
-const isDarkMode = inject('isDarkMode')
+const isDarkMode = inject("isDarkMode");
 
 const props = defineProps({
   sortCriteria: String,
@@ -28,7 +28,6 @@ const props = defineProps({
 
 const { sortCriteria } = toRefs(props);
 </script>
-
 
 <style scoped>
 @media (max-width: 880px) {
@@ -67,5 +66,9 @@ const { sortCriteria } = toRefs(props);
 
 .active {
   background-color: #eb5440;
+}
+
+.dark {
+  background-color: #681308;
 }
 </style>

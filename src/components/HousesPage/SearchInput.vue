@@ -1,5 +1,8 @@
 <template>
-  <div class="search-container">
+  <div
+    class="search-container"
+    :class="{ 'search-container-dark': isDarkMode }"
+  >
     <img
       class="search"
       src="@/assets/icons/actions/search.png"
@@ -22,20 +25,18 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, inject } from "vue";
 
-// Props for the component
+const isDarkMode = inject("isDarkMode");
+
 const props = defineProps({
   search: String,
 });
 
-// Emits for the component
 const emit = defineEmits(["update:search", "input"]);
 
-// Local search state
 const search = ref(props.search || "");
 
-// Watch for prop changes to update local state
 watch(
   () => props.search,
   (newSearch) => {
@@ -43,13 +44,11 @@ watch(
   }
 );
 
-// Emit events on input change
 const onInput = (event) => {
   emit("update:search", event.target.value);
   emit("input", event.target.value);
 };
 
-// Clear search function
 const clearSearch = () => {
   search.value = "";
   emit("update:search", "");
@@ -103,6 +102,10 @@ const clearSearch = () => {
   font-size: 14px;
   font-family: "Montserrat";
   font-weight: 500;
+}
+
+.search-container-dark input {
+  background-color: #4a4e51;
 }
 
 .search-container input::placeholder {
