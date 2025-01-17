@@ -68,7 +68,7 @@
         aria-label="Toggle dark mode"
         :aria-pressed="isDarkMode"
       >
-        {{ isDarkMode ? "Light Mode" : "Dark Mode" }}
+        {{ isDarkMode ? "☀️" : "🌙" }}
       </button>
     </div>
   </header>

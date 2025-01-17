@@ -18,7 +18,9 @@
 </template>
 
 <script setup>
-import { toRefs } from "vue";
+import { toRefs, inject } from "vue";
+
+const isDarkMode = inject('isDarkMode')
 
 const props = defineProps({
   sortCriteria: String,

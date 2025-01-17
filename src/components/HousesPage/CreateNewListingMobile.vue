@@ -1,6 +1,6 @@
 <template>
   <div class="create-new-mobile">
-    <h1 class="title">Houses</h1>
+    <h1 class="title" :class="{'title-dark' : isDarkMode}" >Houses</h1>
     <img
       @click="goToHouseCreating"
       class="plus"
@@ -11,8 +11,10 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { useRouter, inject } from "vue-router";
 const router = useRouter();
+
+const isDarkMode = inject("isDarkMode");
 
 // Define the method to navigate to the House Creating page
 const goToHouseCreating = () => {
@@ -48,5 +50,9 @@ const goToHouseCreating = () => {
   flex-direction: row;
   align-items: center;
   width: 100%;
+}
+
+.title-dark {
+  color: white;
 }
 </style>

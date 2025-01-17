@@ -157,7 +157,7 @@ const goToHouseDetails = (itemId) => {
 }
 
 .item:hover {
-  background-color: #c3c3c3;
+  background-color: #e28a8ab3;
 }
 
 .item-dark {
@@ -213,7 +213,7 @@ img.property {
   margin: 5px 0;
 }
 
-.item-title-dark {
+.item-title-dark h5 {
   color: white;
 }
 
