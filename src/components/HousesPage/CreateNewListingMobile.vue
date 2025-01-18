@@ -64,13 +64,13 @@ const goToHouseCreating = () => {
 
 @media (max-width: 630px) {
   .create-new-mobile {
-    gap: 30%;
+    gap: 30% !important;
   }
 }
 
 @media (max-width: 515px) {
   .create-new-mobile {
-    gap: 20%;
+    gap: 20% !important;
   }
 }
 
@@ -88,7 +88,7 @@ const goToHouseCreating = () => {
 
 /* Light Mode Button */
 .light-mode-button {
-  padding: 12px 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 25px;
   font-weight: bold;
@@ -112,7 +112,7 @@ const goToHouseCreating = () => {
 
 /* Dark Mode Button */
 .dark-mode-button {
-  padding: 12px 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 25px;
   font-weight: bold;
