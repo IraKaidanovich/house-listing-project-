@@ -69,6 +69,6 @@ const { sortCriteria } = toRefs(props);
 }
 
 .dark {
-  background-color: #681308;
+  background-color: #9c33258a;
 }
 </style>

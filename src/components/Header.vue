@@ -103,60 +103,52 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 </script>
 
 <style scoped>
+/* Light Mode Button */
 .light-mode-button {
-  padding: 10px;
-  border: 1px solid #9c3325;
-  border-radius: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
   font-weight: bold;
-  font-size: medium;
+  font-size: 1rem;
   cursor: pointer;
-  background-color: #eb54407c;
+  background-color: #eb5440;
   color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.1s ease;
+  box-shadow: 0 4px 8px rgba(235, 84, 64, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
 }
 
 .light-mode-button:hover {
-  background-color: #ba3d46e5;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-
-.light-mode-button:focus {
-  outline: 3px solid #e82639be;
-  outline-offset: 3px;
+  background-color: #d94535;
+  box-shadow: 0 6px 12px rgba(235, 84, 64, 0.5);
 }
 
 .light-mode-button:active {
   transform: scale(0.95);
 }
 
+/* Dark Mode Button */
 .dark-mode-button {
-  padding: 10px;
-  border: 1px solid #616161;
-  border-radius: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  background-color: #504f4f;
-  color: #f5f5f5;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.1s ease;
+  background-color: #616161;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
 }
 
 .dark-mode-button:hover {
-  background-color: #616161;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-}
-
-.dark-mode-button:focus {
-  outline: 3px solid #90caf9;
-  outline-offset: 3px;
+  background-color: #4a4a4a;
+  box-shadow: 0 6px 12px rgba(97, 97, 97, 0.5);
 }
 
 .dark-mode-button:active {
   transform: scale(0.95);
 }
+
 
 .navbar {
   width: 100%;

@@ -563,6 +563,7 @@ textarea::placeholder {
 
 .dark-input {
   background-color: #4a4e51 !important;
+  color: white !important;
 }
 
 .dark-text {

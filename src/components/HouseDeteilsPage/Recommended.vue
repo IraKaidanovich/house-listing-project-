@@ -101,7 +101,7 @@ const goToHouseDetails = (itemId) => {
 
 <style scoped>
 .dark {
-  color: white;
+  color: white !important;
 }
 
 .item-text-container {
