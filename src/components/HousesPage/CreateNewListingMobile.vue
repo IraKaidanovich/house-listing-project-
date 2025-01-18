@@ -1,6 +1,7 @@
 <template>
   <div class="create-new-mobile">
     <button
+      class="dark-mode"
       :class="{
         'light-mode-button': !isDarkMode,
         'dark-mode-button': isDarkMode,
@@ -44,6 +45,9 @@ const goToHouseCreating = () => {
   img.plus {
     display: none;
   }
+  .dark-mode {
+    display: none;
+  }
 }
 
 @media (max-width: 880px) {
@@ -81,7 +85,8 @@ const goToHouseCreating = () => {
   background-color: #eb5440;
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(235, 84, 64, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .light-mode-button:hover {
@@ -104,7 +109,8 @@ const goToHouseCreating = () => {
   background-color: #616161;
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .dark-mode-button:hover {

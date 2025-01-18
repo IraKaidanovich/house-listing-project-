@@ -30,8 +30,8 @@ const cancel = () => {
 
 <style scoped>
 .dark {
-  background-color: #4a4e51;
-  color: white;
+  background-color: #4a4e51 !important;
+  color: white !important;
 }
 
 .buttons {

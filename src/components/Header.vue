@@ -52,6 +52,7 @@
         </router-link>
       </nav>
       <button
+        class="dark-mode"
         :class="{
           'light-mode-button': !isDarkMode,
           'dark-mode-button': isDarkMode,
@@ -114,7 +115,8 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   background-color: #eb5440;
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(235, 84, 64, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .light-mode-button:hover {
@@ -137,7 +139,8 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   background-color: #616161;
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(97, 97, 97, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.1s ease;
 }
 
 .dark-mode-button:hover {
@@ -149,7 +152,6 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   transform: scale(0.95);
 }
 
-
 .navbar {
   width: 100%;
   display: flex;
@@ -158,6 +160,10 @@ const isAboutActive = computed(() => route.name === "AboutPage");
 
 @media (min-width: 880px) {
   img.image {
+    display: none;
+  }
+
+  .dark-mode {
     display: none;
   }
 }
