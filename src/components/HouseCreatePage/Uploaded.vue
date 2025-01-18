@@ -1,6 +1,8 @@
 <template>
   <div class="form-group file">
-    <label for="uploaded-picture">Uploaded picture (PNG or JPG)*</label>
+    <label for="uploaded-picture" :class="{ dark: isDarkMode }"
+      >Uploaded picture (PNG or JPG)*</label
+    >
     <label v-if="!imageUrl" for="uploaded-picture" class="plus">
       <img
         src="@/assets/icons/actions/grey-plus-icon.png"
@@ -34,44 +36,49 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    imageUrl: String,
-    fileError: Boolean,
-  },
-  emits: ["fileChange", "removeImage"],
-  data() {
-    return {
-      fileInput: null,
-    };
-  },
-  methods: {
-    onFileChange(event) {
-      const selectedFile = event.target.files[0];
-      if (selectedFile) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          this.$emit("fileChange", {
-            url: e.target.result,
-            file: selectedFile,
-          });
-        };
-        reader.readAsDataURL(selectedFile);
-      }
-    },
-    removeImage() {
-      this.$emit("removeImage");
-      if (this.fileInput) {
-        this.fileInput.value = null;
-      }
-    },
-  },
+<script setup>
+import { ref, onMounted, inject } from "vue";
 
-  mounted() {
-    this.fileInput = this.$refs.fileInput;
-  },
+const isDarkMode = inject("isDarkMode");
+
+// Props
+const props = defineProps({
+  imageUrl: String,
+  fileError: Boolean,
+});
+
+// Emits
+const emit = defineEmits(["fileChange", "removeImage"]);
+
+// Refs
+const fileInput = ref(null);
+
+// Methods
+const onFileChange = (event) => {
+  const selectedFile = event.target.files[0];
+  if (selectedFile) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      emit("fileChange", {
+        url: e.target.result,
+        file: selectedFile,
+      });
+    };
+    reader.readAsDataURL(selectedFile);
+  }
 };
+
+const removeImage = () => {
+  emit("removeImage");
+  if (fileInput.value) {
+    fileInput.value.value = null;
+  }
+};
+
+// Lifecycle hooks
+onMounted(() => {
+  fileInput.value = fileInput.value;
+});
 </script>
 
 <style scoped>
@@ -147,5 +154,9 @@ label.plus {
   justify-content: center;
   align-items: center;
   margin: 10px 0px;
+}
+
+.dark {
+  color: white;
 }
 </style>

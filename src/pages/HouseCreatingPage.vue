@@ -127,7 +127,7 @@
                 >Garage*</label
               >
               <select
-                :class="{ 'dark-input': isDarkMode }"
+                :class="{ 'dark-input': isDarkMode, 'dark-text': isDarkMode }"
                 id="garage"
                 name="hasGarage"
                 v-model="formData.hasGarage"
@@ -212,6 +212,7 @@
               >Description*</label
             >
             <textarea
+              :class="{ 'dark-input': isDarkMode }"
               id="description"
               class="description"
               name="description"
