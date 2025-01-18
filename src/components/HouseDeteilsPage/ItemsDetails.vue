@@ -183,6 +183,7 @@ const props = defineProps({
 
 .text-dark {
   color: white;
+  background-color: #4a4e51;
 }
 
 .madeByMe-block {
