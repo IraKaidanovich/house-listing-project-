@@ -8,8 +8,7 @@
       <form class="form" @submit.prevent="handleSubmit">
         <fieldset class="fieldset">
           <legend class="legend">
-            <h1 class="title">
-              :class="{ 'dark-text': isDarkMode }"
+            <h1 class="title" :class="{ 'dark-text': isDarkMode }">
               {{ isEditing ? "Edit Listing" : "Create New Listing" }}
             </h1>
           </legend>
@@ -562,11 +561,11 @@ textarea::placeholder {
 }
 
 .dark-input {
-  background-color: 4a4e51;
+  background-color: #4a4e51 !important;
 }
 
 .dark-text {
-  color: white;
+  color: white !important;
 }
 
 @media (max-width: 880px) {
