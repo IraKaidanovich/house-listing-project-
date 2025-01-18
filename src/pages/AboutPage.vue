@@ -39,7 +39,7 @@ const info = ref(null);
   font-size: 15px;
   color: #4a4b4c;
   font-weight: 300;
-  padding-bottom: 100px;
+  height: 700px;
 }
 
 .page-content-dark {

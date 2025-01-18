@@ -15,8 +15,8 @@
         ></div>
         <div class="item-container-recommended">
           <div class="item-text-container">
-            <div class="item-title" :class="{ dark: isDarkMode }">
-              <h5>
+            <div class="item-title" >
+              <h5 :class="{ dark: isDarkMode }" >
                 {{ item.location.street }} {{ item.location.houseNumber }}
                 {{ item.location.houseNumberAddition }}
               </h5>
@@ -31,25 +31,24 @@
           <div class="item-properties-recommended">
             <img
               class="property"
-              :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/bed.png"
               alt="icon of bad"
             />
-            <p>{{ item.rooms.bedrooms }}</p>
+            <p :class="{ dark: isDarkMode }">{{ item.rooms.bedrooms }}</p>
             <img
               class="property"
               :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/bath.png"
               alt="icon of bath"
             />
-            <p>{{ item.rooms.bathrooms }}</p>
+            <p :class="{ dark: isDarkMode }">{{ item.rooms.bathrooms }}</p>
             <img
               class="property"
               :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/size.png"
               alt="icon of size"
             />
-            <p>{{ item.size }}</p>
+            <p :class="{ dark: isDarkMode }">{{ item.size }}</p>
           </div>
         </div>
       </div>

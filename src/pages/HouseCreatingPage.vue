@@ -190,7 +190,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, onMounted, inject } from "vue";
 import backgroundImage from "@/assets/images/create-new-property-background.png";
 import { useRouter, useRoute } from "vue-router";
 import BackToList from "@/components/BackToList.vue";
@@ -199,6 +199,8 @@ import PostButton from "@/components/HouseCreatePage/PostButton.vue";
 import useVuelidate from "@vuelidate/core";
 import { helpers, minValue, numeric, required } from "@vuelidate/validators";
 import { apiService } from "@/services/apiService";
+
+const isDarkMode = inject("isDarkMode");
 
 const black = "black";
 
@@ -309,24 +311,23 @@ const handleSubmit = async () => {
 
   try {
     const payload = {
-  location: {
-    street: formData.value.street,
-    houseNumber: formData.value.houseNumber,
-    houseNumberAddition: formData.value.houseNumberAddition,
-    zip: formData.value.zip,
-    city: formData.value.city,
-  },
-  rooms: {
-    bedrooms: parseInt(formData.value.bedrooms, 10),
-    bathrooms: parseInt(formData.value.bathrooms, 10),
-  },
-  price: parseFloat(formData.value.price),
-  size: parseFloat(formData.value.size),
-  constructionYear: parseInt(formData.value.constructionYear, 10),
-  hasGarage: formData.value.hasGarage,
-  description: formData.value.description,
-};
-
+      location: {
+        street: formData.value.street,
+        houseNumber: formData.value.houseNumber,
+        houseNumberAddition: formData.value.houseNumberAddition,
+        zip: formData.value.zip,
+        city: formData.value.city,
+      },
+      rooms: {
+        bedrooms: parseInt(formData.value.bedrooms, 10),
+        bathrooms: parseInt(formData.value.bathrooms, 10),
+      },
+      price: parseFloat(formData.value.price),
+      size: parseFloat(formData.value.size),
+      constructionYear: parseInt(formData.value.constructionYear, 10),
+      hasGarage: formData.value.hasGarage,
+      description: formData.value.description,
+    };
 
     let response;
     if (isEditing.value) {
@@ -351,26 +352,29 @@ const handleSubmit = async () => {
       }
     }
 
-    router.push({ name: 'HouseDetailsPage', params: { id: response.data.id } });
+    router.push({ name: "HouseDetailsPage", params: { id: response.data.id } });
   } catch (error) {
-    console.error('Error creating or updating house:', error);
+    console.error("Error creating or updating house:", error);
   }
 };
-
 
 const removeImage = () => {
   formData.value.housePhoto.file = null;
   formData.value.housePhoto.url = null;
 };
 
-const backgroundStyle = computed(() => ({
-  backgroundImage: `url(${backgroundImage})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-}));
+const backgroundStyle = computed(() =>
+  isDarkMode.value
+    ? { backgroundColor: "#2c2e30" }
+    : {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }
+);
 </script>
 
 <style scoped>
