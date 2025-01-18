@@ -105,7 +105,7 @@ const hasGarageText = computed(() => {
   .body {
     flex-direction: column;
     margin: 0px 0px;
-    padding: 0 px;
+    padding: 0 !important;
   }
 }
 </style>

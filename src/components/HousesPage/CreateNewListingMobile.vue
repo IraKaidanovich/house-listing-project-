@@ -62,12 +62,24 @@ const goToHouseCreating = () => {
   }
 }
 
+@media (max-width: 630px) {
+  .create-new-mobile {
+    gap: 30%;
+  }
+}
+
+@media (max-width: 515px) {
+  .create-new-mobile {
+    gap: 20%;
+  }
+}
+
 .create-new-mobile {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  gap: 30%;
+  gap: 35%;
 }
 
 .title-dark {

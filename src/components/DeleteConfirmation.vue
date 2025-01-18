@@ -2,8 +2,10 @@
   <div class="delete-confirmation-body">
     <div class="confirmation-container" :class="{ dark: isDarkMode }">
       <h2 class="title">Delete listing</h2>
-      <p>Are you sure that you want to delete this listing?</p>
-      <p>This action cannot be undone</p>
+      <p :class="{ dark: isDarkMode }">
+        Are you sure that you want to delete this listing?
+      </p>
+      <p :class="{ dark: isDarkMode }">This action cannot be undone</p>
       <div class="buttons">
         <button class="red-button" @click="confirm">YES, DELETE</button>
         <button class="grey-button" @click="cancel">GO BACK</button>
