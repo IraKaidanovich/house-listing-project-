@@ -9,12 +9,16 @@
         <fieldset class="fieldset">
           <legend class="legend">
             <h1 class="title">
+              :class="{ 'dark-text': isDarkMode }"
               {{ isEditing ? "Edit Listing" : "Create New Listing" }}
             </h1>
           </legend>
           <div class="form-group form-group-single">
-            <label for="street-name">Street name*</label>
+            <label for="street-name" :class="{ 'dark-text': isDarkMode }"
+              >Street name*</label
+            >
             <input
+              :class="{ 'dark-input': isDarkMode }"
               type="text"
               id="street-name"
               name="street"
@@ -25,8 +29,11 @@
           </div>
           <div class="form-group-inline">
             <div class="form-group">
-              <label for="house-number">House number*</label>
+              <label for="house-number" :class="{ 'dark-text': isDarkMode }"
+                >House number*</label
+              >
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="text"
                 id="house-number"
                 name="houseNumber"
@@ -36,8 +43,11 @@
               />
             </div>
             <div class="form-group right-group-item">
-              <label for="addition">Addition (optional)</label>
+              <label for="addition" :class="{ 'dark-text': isDarkMode }"
+                >Addition (optional)</label
+              >
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="text"
                 id="addition"
                 name="houseNumberAddition"
@@ -48,8 +58,11 @@
           </div>
 
           <div class="form-group form-group-single">
-            <label for="postal-code">Postal code*</label>
+            <label for="postal-code" :class="{ 'dark-text': isDarkMode }"
+              >Postal code*</label
+            >
             <input
+              :class="{ 'dark-input': isDarkMode }"
               type="text"
               id="postal-code"
               name="zip"
@@ -59,8 +72,9 @@
             />
           </div>
           <div class="form-group form-group-single">
-            <label for="city">City*</label>
+            <label for="city" :class="{ 'dark-text': isDarkMode }">City*</label>
             <input
+              :class="{ 'dark-input': isDarkMode }"
               type="text"
               id="city"
               name="city"
@@ -74,13 +88,18 @@
             @fileChange="uploadImage"
             @removeImage="removeImage"
           ></Uploaded>
-          <span v-if="vuelidateResult.housePhoto.$error"
+          <span
+            :class="{ 'dark-text': isDarkMode }"
+            v-if="vuelidateResult.housePhoto.$error"
             >The image is required</span
           >
 
           <div class="form-group form-group-single">
-            <label for="price">Price*</label>
+            <label for="price" :class="{ 'dark-text': isDarkMode }"
+              >Price*</label
+            >
             <input
+              :class="{ 'dark-input': isDarkMode }"
               type="number"
               id="price"
               name="price"
@@ -91,8 +110,11 @@
           </div>
           <div class="form-group-inline">
             <div class="form-group">
-              <label for="size">Size*</label>
+              <label for="size" :class="{ 'dark-text': isDarkMode }"
+                >Size*</label
+              >
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="number"
                 id="size"
                 name="size"
@@ -102,23 +124,35 @@
               />
             </div>
             <div class="form-group right-group-item">
-              <label for="garage">Garage*</label>
+              <label for="garage" :class="{ 'dark-text': isDarkMode }"
+                >Garage*</label
+              >
               <select
+                :class="{ 'dark-input': isDarkMode }"
                 id="garage"
                 name="hasGarage"
                 v-model="formData.hasGarage"
                 required
               >
-                <option value="">Select</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option :class="{ 'dark-text': isDarkMode }" value="">
+                  Select
+                </option>
+                <option :class="{ 'dark-text': isDarkMode }" value="true">
+                  Yes
+                </option>
+                <option :class="{ 'dark-text': isDarkMode }" value="false">
+                  No
+                </option>
               </select>
             </div>
           </div>
           <div class="form-group-inline">
             <div class="form-group">
-              <label for="bedrooms">Bedrooms*</label>
+              <label for="bedrooms" :class="{ 'dark-text': isDarkMode }"
+                >Bedrooms*</label
+              >
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="text"
                 id="bedrooms"
                 name="bedrooms"
@@ -128,8 +162,11 @@
               />
             </div>
             <div class="form-group right-group-item">
-              <label for="bathrooms">Bathrooms*</label>
+              <label for="bathrooms" :class="{ 'dark-text': isDarkMode }"
+                >Bathrooms*</label
+              >
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="text"
                 id="bathrooms"
                 name="bathrooms"
@@ -140,9 +177,12 @@
             </div>
           </div>
           <div class="form-group form-group-single">
-            <label for="construction-date">Construction date*</label>
+            <label for="construction-date" :class="{ 'dark-text': isDarkMode }"
+              >Construction date*</label
+            >
             <div class="input-wrapper">
               <input
+                :class="{ 'dark-input': isDarkMode }"
                 type="text"
                 id="construction-date"
                 name="constructionYear"
@@ -169,7 +209,9 @@
           </div>
 
           <div class="form-group form-group-single">
-            <label for="description">Description*</label>
+            <label for="description" :class="{ 'dark-text': isDarkMode }"
+              >Description*</label
+            >
             <textarea
               id="description"
               class="description"
@@ -181,6 +223,7 @@
           </div>
         </fieldset>
         <PostButton
+          :class="{ 'dark-text': isDarkMode }"
           :isEditing="isEditing"
           :allFieldsFilled="allFieldsFilled"
         ></PostButton>
@@ -378,6 +421,14 @@ const backgroundStyle = computed(() =>
 </script>
 
 <style scoped>
+.dark-input {
+  background-color: 4a4e51;
+}
+
+.dark-text {
+  color: white;
+}
+
 .back-button {
   margin-top: 15px;
 }

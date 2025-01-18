@@ -100,6 +100,10 @@ const goToHouseDetails = (itemId) => {
 </script>
 
 <style scoped>
+.dark {
+  color: white;
+}
+
 .item-text-container {
   min-width: 160px;
   max-width: 200px;
@@ -178,10 +182,6 @@ const goToHouseDetails = (itemId) => {
   cursor: pointer;
 }
 
-.item-title-dark h5 {
-  color: white;
-}
-
 .item-price {
   color: #454647;
   font-weight: 600;
@@ -200,10 +200,6 @@ const goToHouseDetails = (itemId) => {
   font-family: "Open Sans";
   color: #4a4b4c;
   font-weight: 500;
-}
-
-.dark {
-  color: white;
 }
 
 @media (max-width: 915px) {
