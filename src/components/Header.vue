@@ -162,13 +162,13 @@ const isAboutActive = computed(() => route.name === "AboutPage");
   img.image {
     display: none;
   }
-
-  .dark-mode {
-    display: none;
-  }
 }
 
 @media (max-width: 880px) {
+  .dark-mode {
+    display: none;
+  }
+
   .nav-link:last-of-type {
     margin-inline-start: auto;
   }

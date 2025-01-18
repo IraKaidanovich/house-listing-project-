@@ -59,7 +59,6 @@ const goToHouseCreating = () => {
 
   .title {
     font-size: 22px;
-    margin-left: 42%;
   }
 }
 
@@ -68,6 +67,7 @@ const goToHouseCreating = () => {
   flex-direction: row;
   align-items: center;
   width: 100%;
+  gap: 30%;
 }
 
 .title-dark {
