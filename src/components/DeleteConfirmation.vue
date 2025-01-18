@@ -1,6 +1,6 @@
 <template>
   <div class="delete-confirmation-body">
-    <div class="confirmation-container">
+    <div class="confirmation-container" :class="{ dark: isDarkMode }">
       <h2 class="title">Delete listing</h2>
       <p>Are you sure that you want to delete this listing?</p>
       <p>This action cannot be undone</p>
@@ -13,6 +13,10 @@
 </template>
 
 <script setup>
+import { inject } from "vue";
+
+const isDarkMode = inject("isDarkMode");
+
 const emits = defineEmits(["confirm", "cancel"]);
 
 const confirm = () => {
@@ -25,6 +29,11 @@ const cancel = () => {
 </script>
 
 <style scoped>
+.dark {
+  background-color: #4a4e51;
+  color: white;
+}
+
 .buttons {
   width: 100%;
   display: flex;

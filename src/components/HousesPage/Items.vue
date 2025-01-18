@@ -265,8 +265,8 @@ img.property {
   }
 
   .madeByMe-block img {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     margin: 5px;
   }
   .madeByMe-block {
