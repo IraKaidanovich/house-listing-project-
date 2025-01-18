@@ -1,14 +1,12 @@
 <template>
   <div class="recommended">
-    <div class="title" :class="{ 'dark': isDarkMode }">
-      Recommended for you
-    </div>
+    <div class="title" :class="{ dark: isDarkMode }">Recommended for you</div>
     <div class="item">
       <div
         v-for="item in recommendedItems"
         :key="item.id"
         class="item-recommended"
-        :class="{ 'dark': isDarkMode }"
+        :class="{ 'item-recommended-dark': isDarkMode }"
         @click="goToHouseDetails(item.id)"
       >
         <div
@@ -17,34 +15,37 @@
         ></div>
         <div class="item-container-recommended">
           <div class="item-text-container">
-            <div class="item-title"  :class="{ 'dark': isDarkMode }" >
+            <div class="item-title" :class="{ dark: isDarkMode }">
               <h5>
                 {{ item.location.street }} {{ item.location.houseNumber }}
                 {{ item.location.houseNumberAddition }}
               </h5>
             </div>
-            <div class="item-price" :class="{ 'dark': isDarkMode }">
+            <div class="item-price" :class="{ dark: isDarkMode }">
               € {{ currencyFormatWithoutSimbol(item.price) }}
             </div>
-            <div class="item-address">
+            <div class="item-address" :class="{ dark: isDarkMode }">
               {{ item.location.zip }} {{ item.location.city }}
             </div>
           </div>
           <div class="item-properties-recommended">
             <img
               class="property"
+              :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/bed.png"
               alt="icon of bad"
             />
             <p>{{ item.rooms.bedrooms }}</p>
             <img
               class="property"
+              :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/bath.png"
               alt="icon of bath"
             />
             <p>{{ item.rooms.bathrooms }}</p>
             <img
               class="property"
+              :class="{ dark: isDarkMode }"
               src="@/assets/icons/properties/size.png"
               alt="icon of size"
             />
@@ -204,7 +205,6 @@ const goToHouseDetails = (itemId) => {
 
 .dark {
   color: white;
-  background-color: #454647;
 }
 
 @media (max-width: 915px) {

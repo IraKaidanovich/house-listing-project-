@@ -49,7 +49,6 @@ const goToHousesPage = () => {
 <style>
 .dark {
   color: white;
-  background-color: #4a4e51;
 }
 
 @media (min-width: 880px) {
