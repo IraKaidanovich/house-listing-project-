@@ -138,9 +138,12 @@ const props = defineProps({
 .item img,
 .edit img,
 .delete img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
+  margin: 0 5px 0 0;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .title {
