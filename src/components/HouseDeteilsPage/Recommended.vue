@@ -1,11 +1,14 @@
 <template>
   <div class="recommended">
-    <div class="title">Recommended for you</div>
+    <div class="title" :class="{ 'dark': isDarkMode }">
+      Recommended for you
+    </div>
     <div class="item">
       <div
         v-for="item in recommendedItems"
         :key="item.id"
         class="item-recommended"
+        :class="{ 'dark': isDarkMode }"
         @click="goToHouseDetails(item.id)"
       >
         <div
@@ -14,13 +17,13 @@
         ></div>
         <div class="item-container-recommended">
           <div class="item-text-container">
-            <div class="item-title">
+            <div class="item-title"  :class="{ 'dark': isDarkMode }" >
               <h5>
                 {{ item.location.street }} {{ item.location.houseNumber }}
                 {{ item.location.houseNumberAddition }}
               </h5>
             </div>
-            <div class="item-price">
+            <div class="item-price" :class="{ 'dark': isDarkMode }">
               € {{ currencyFormatWithoutSimbol(item.price) }}
             </div>
             <div class="item-address">
@@ -54,8 +57,10 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { useRouter } from "vue-router";
+
+const isDarkMode = inject("isDarkMode");
 
 // Props to receive from parent component
 const props = defineProps({
@@ -92,7 +97,6 @@ const goToHouseDetails = (itemId) => {
       console.error("Navigation error:", error);
     });
 };
-
 </script>
 
 <style scoped>
@@ -103,6 +107,10 @@ const goToHouseDetails = (itemId) => {
 
 .title {
   font-size: 24px;
+}
+
+.title-dark {
+  color: white;
 }
 
 .item-address {
@@ -133,6 +141,10 @@ const goToHouseDetails = (itemId) => {
   border-radius: 8px;
   width: 100%;
   cursor: pointer;
+}
+
+.item-recommended-dark {
+  background-color: #4a4e51;
 }
 
 .item-recommended,
@@ -166,6 +178,10 @@ const goToHouseDetails = (itemId) => {
   cursor: pointer;
 }
 
+.item-title-dark h5 {
+  color: white;
+}
+
 .item-price {
   color: #454647;
   font-weight: 600;
@@ -174,12 +190,21 @@ const goToHouseDetails = (itemId) => {
   font-size: 14px;
 }
 
+.item-price-dark {
+  color: white;
+}
+
 .item-address,
 .item-properties-recommended {
   font-size: 13px;
   font-family: "Open Sans";
   color: #4a4b4c;
   font-weight: 500;
+}
+
+.dark {
+  color: white;
+  background-color: #454647;
 }
 
 @media (max-width: 915px) {

@@ -93,7 +93,7 @@ const hasGarageText = computed(() => {
 
 <style scoped>
 .body {
-  margin: 30px 15%;
+  padding: 30px 15%;
   display: flex;
 }
 

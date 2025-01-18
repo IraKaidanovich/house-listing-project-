@@ -182,6 +182,7 @@ const props = defineProps({
   font-family: "Open Sans";
   color: #4a4b4c;
   font-weight: 500;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .text-dark {
@@ -201,11 +202,6 @@ const props = defineProps({
   background-color: rgba(0, 255, 255, 0);
   border: none;
   cursor: pointer;
-}
-
-.madeByMe-block-dark button {
-  background-color: #faf6f6cb;
-  padding: 10px;
 }
 
 @media (max-width: 915px) {

@@ -6,7 +6,7 @@
       src="@/assets/icons/actions/grey-back-icon.png"
       alt="Back to list button"
     />
-    <p @click="goToHousesPage">Back to overview</p>
+    <p @click="goToHousesPage" :class="{ 'dark': isDarkMode }" >Back to overview</p>
   </div>
   <div @click="goToHousesPage" class="back-mobile">
     <button>
@@ -17,9 +17,11 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-import { computed, defineProps } from "vue";
+import { computed, defineProps, inject } from "vue";
 import backImgBlack from "@/assets/icons/actions/grey-back-icon.png";
 import backImgWhite from "@/assets/icons/actions/white-back-icon.png";
+
+const isDarkMode = inject('isDarkMode')
 
 const props = defineProps({
   styling: {
@@ -45,6 +47,11 @@ const goToHousesPage = () => {
 </script>
 
 <style>
+.dark {
+  color: white;
+  background-color: #4a4e51;
+}
+
 @media (min-width: 880px) {
   .back-mobile {
     display: none;
