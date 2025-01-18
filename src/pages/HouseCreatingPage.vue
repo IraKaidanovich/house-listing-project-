@@ -421,14 +421,6 @@ const backgroundStyle = computed(() =>
 </script>
 
 <style scoped>
-.dark-input {
-  background-color: 4a4e51;
-}
-
-.dark-text {
-  color: white;
-}
-
 .back-button {
   margin-top: 15px;
 }
@@ -567,6 +559,14 @@ textarea::placeholder {
 
 .right-group-item {
   margin-left: 20px;
+}
+
+.dark-input {
+  background-color: 4a4e51;
+}
+
+.dark-text {
+  color: white;
 }
 
 @media (max-width: 880px) {
