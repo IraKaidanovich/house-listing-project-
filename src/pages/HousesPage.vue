@@ -56,7 +56,7 @@ import { useModal } from "@/composables/useModal";
 import { useDeleteHouse } from "@/composables/useDeleteHouse";
 import Loading from "@/components/Loading.vue";
 
-const isDarkMode = inject("isDarkMode")
+const isDarkMode = inject("isDarkMode");
 
 const { isModalVisible, itemToDeleteId, showModal, hideModal } = useModal();
 const { deleteHouse } = useDeleteHouse();
@@ -159,11 +159,11 @@ const toggleSortCriteria = (criteria) => {
 }
 
 .body {
-  padding: 0% 15%;
+  padding: 0% 15% 30%;
 }
 
 .body-dark {
-  background-color:#2c2e30;
+  background-color: #2c2e30;
 }
 
 @media (max-width: 880px) {
@@ -183,8 +183,7 @@ const toggleSortCriteria = (criteria) => {
   }
 
   .body {
-    padding: 0% 5%;
-    margin-bottom: 100px;
+    padding: 0% 5% 50%;
   }
 }
 </style>

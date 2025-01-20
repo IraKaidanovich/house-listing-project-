@@ -34,12 +34,11 @@ const info = ref(null);
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 0% 15%;
+  padding: 0% 15% 200px;
   font-family: Open Sans;
   font-size: 15px;
   color: #4a4b4c;
   font-weight: 300;
-  height: 700px;
 }
 
 .page-content-dark {

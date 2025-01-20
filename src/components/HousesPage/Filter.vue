@@ -2,14 +2,20 @@
   <div class="filter">
     <button
       class="price-filter"
-      :class="{ active: sortCriteria === 'price', dark: isDarkMode }"
+      :class="{
+        active: sortCriteria === 'price',
+        dark: isDarkMode && sortCriteria === 'price',
+      }"
       @click="$emit('toggle', 'price')"
     >
       Price
     </button>
     <button
       class="size-filter"
-      :class="{ active: sortCriteria === 'size', dark: isDarkMode }"
+      :class="{
+        active: sortCriteria === 'size',
+        dark: isDarkMode && sortCriteria === 'size',
+      }"
       @click="$emit('toggle', 'size')"
     >
       Size

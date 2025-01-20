@@ -1,5 +1,5 @@
-<template :class="{ 'dark-template': isDarkMode }">
-  <div id="app" :class="{ 'dark-body': isDarkMode }">
+<template>
+  <div id="app">
     <DarkModeProvider>
       <Header />
       <router-view />
@@ -10,9 +10,6 @@
 <script>
 import Header from "./components/Header.vue";
 import DarkModeProvider from "./components/DarkModeProvider.vue";
-import { inject } from "vue";
-
-const isDarkMode = inject("isDarkMode");
 
 export default {
   name: "App",
@@ -30,18 +27,11 @@ export default {
   box-sizing: border-box;
 }
 
-.dark-template {
-  background-color: #4a4e51 !important;
-}
-
-.dark-body {
-  background-color: #4a4e51 !important;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 :root {
