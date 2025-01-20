@@ -1,5 +1,5 @@
-<template :class="{ dark: isDarkMode }">
-  <div id="app" :class="{ dark: isDarkMode }">
+<template :class="{ 'dark-template': isDarkMode }">
+  <div id="app" :class="{ 'dark-body': isDarkMode }">
     <DarkModeProvider>
       <Header />
       <router-view />
@@ -30,7 +30,11 @@ export default {
   box-sizing: border-box;
 }
 
-.dark {
+.dark-template {
+  background-color: #4a4e51 !important;
+}
+
+.dark-body {
   background-color: #4a4e51 !important;
 }
 
