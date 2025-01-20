@@ -151,6 +151,7 @@ const toggleSortCriteria = (criteria) => {
 .upper-block {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .left-block {

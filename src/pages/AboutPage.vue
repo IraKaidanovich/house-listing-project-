@@ -34,7 +34,7 @@ const info = ref(null);
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 0% 15% 200px;
+  padding: 0% 15% 60%;
   font-family: Open Sans;
   font-size: 15px;
   color: #4a4b4c;

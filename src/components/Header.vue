@@ -30,7 +30,7 @@
           :to="{ name: 'AboutPage' }"
           :class="[
             'nav-link',
-            { active: isHomeActive, 'dark-link': isDarkMode },
+            { active: isAboutActive, 'dark-link': isDarkMode },
           ]"
         >
           <span>About</span>
