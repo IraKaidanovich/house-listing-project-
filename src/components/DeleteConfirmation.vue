@@ -1,14 +1,26 @@
 <template>
   <div class="delete-confirmation-body">
     <div class="confirmation-container" :class="{ dark: isDarkMode }">
-      <h2 class="title">Delete listing</h2>
+      <h2 :class="{ dark: isDarkMode }" class="title">Delete listing</h2>
       <p :class="{ dark: isDarkMode }">
         Are you sure that you want to delete this listing?
       </p>
       <p :class="{ dark: isDarkMode }">This action cannot be undone</p>
       <div class="buttons">
-        <button class="red-button" @click="confirm">YES, DELETE</button>
-        <button class="grey-button" @click="cancel">GO BACK</button>
+        <button
+          class="red-button"
+          :class="{ 'dark-red': isDarkMode }"
+          @click="confirm"
+        >
+          YES, DELETE
+        </button>
+        <button
+          class="grey-button"
+          :class="{ dark: isDarkMode }"
+          @click="cancel"
+        >
+          GO BACK
+        </button>
       </div>
     </div>
   </div>
@@ -31,6 +43,10 @@ const cancel = () => {
 </script>
 
 <style scoped>
+.dark-red {
+  background-color: #9c33258a !important;
+}
+
 .dark {
   background-color: #4a4e51 !important;
   color: white !important;

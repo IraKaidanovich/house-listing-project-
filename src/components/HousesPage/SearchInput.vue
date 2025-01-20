@@ -80,6 +80,9 @@ const clearSearch = () => {
   width: 18px;
   top: 50%;
   transform: translateY(-50%);
+  background: #ffffff9c;
+  padding: 2px;
+  border-radius: 4px;
 }
 
 .search-container .search {
@@ -106,6 +109,7 @@ const clearSearch = () => {
 
 .search-container-dark input {
   background-color: #4a4e51;
+  color: white;
 }
 
 .search-container input::placeholder {
@@ -126,18 +130,5 @@ const clearSearch = () => {
 
 .resulf-of-search {
   margin-right: auto;
-}
-
-.no-results img {
-  width: 450px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.no-results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 100px 0px;
 }
 </style>
